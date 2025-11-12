@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Phajas Travel and Tour - South African Adventures</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -18,14 +18,14 @@
             --primary: #1a73e8;
             --secondary: #34a853;
             --accent: #fbbc05;
-            --dark: #202124;
-            --light: #f8f9fa;
-            --gray: #5f6368;
-            --sa-green: #007749;
-            --sa-yellow: #FFB81C;
-            --sa-red: #DE3831;
-            --sa-blue: #002395;
-            --sa-black: #000000;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --gray: #7f8c8d;
+            --sa-green: #27ae60;
+            --sa-yellow: #f39c12;
+            --sa-red: #e74c3c;
+            --sa-blue: #3498db;
+            --sa-black: #2c3e50;
         }
         
         body {
@@ -59,7 +59,7 @@
         }
         
         .btn:hover {
-            background-color: #005a38;
+            background-color: #219653;
             transform: translateY(-2px);
         }
         
@@ -69,7 +69,7 @@
         }
         
         .btn-secondary:hover {
-            background-color: #e6a416;
+            background-color: #e8930c;
         }
         
         .section {
@@ -148,19 +148,19 @@
             cursor: pointer;
         }
         
- /* Hero Section */
-.hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Logo.jpg');
-    background-size: % auto; /* Adjust percentage as needed */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #f8f9fa;
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    color: white;
-    text-align: center;
-}
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Logo.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: var(--light);
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
         
         .hero-content {
             max-width: 800px;
@@ -182,6 +182,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
+            width: 80%;
+            margin: 0 auto;
         }
         
         .trip-card {
@@ -196,10 +198,22 @@
             transform: translateY(-10px);
         }
         
-        .trip-img {
+        .trip-img-container {
             height: 200px;
             width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .trip-img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .trip-card:hover .trip-img {
+            transform: scale(1.05);
         }
         
         .trip-content {
@@ -225,7 +239,7 @@
         
         /* Services Section */
         .services {
-            background-color: #f0f7ff;
+            background-color: #e8f4f1;
         }
         
         .services-grid {
@@ -287,7 +301,7 @@
         
         /* Testimonials */
         .testimonials {
-            background-color: #f0f7ff;
+            background-color: #e8f4f1;
         }
         
         .testimonial-grid {
@@ -494,18 +508,20 @@
             border: 5px solid var(--sa-green);
         }
         
-        /* Responsive Styles */
+        /* Enhanced Mobile Responsive Styles */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 80px;
                 left: 0;
                 width: 100%;
+                height: calc(100vh - 80px);
                 background-color: white;
                 flex-direction: column;
                 padding: 20px;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 999;
             }
             
             .nav-links.active {
@@ -513,19 +529,96 @@
             }
             
             .nav-links li {
-                margin: 10px 0;
+                margin: 15px 0;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 10px 0;
+                display: block;
             }
             
             .mobile-menu {
                 display: block;
+                z-index: 1000;
+            }
+            
+            .hero {
+                height: 70vh;
+                background-size: 80% auto;
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 25px;
             }
             
             .section-title {
                 font-size: 2rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .container {
+                width: 95%;
+                padding: 0 10px;
+            }
+            
+            .btn {
+                padding: 14px 20px;
+                font-size: 1rem;
+                margin: 5px;
+            }
+            
+            .booking-form {
+                padding: 20px 15px;
+            }
+            
+            .form-control {
+                padding: 14px;
+                font-size: 16px;
+            }
+            
+            .trips-grid {
+                width: 95%;
+            }
+        }
+
+        /* Additional small screen optimization */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .trip-card, .service-card, .testimonial-card {
+                margin: 0 10px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .team-grid, .services-grid, .trips-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                width: 100%;
             }
         }
     </style>
@@ -569,7 +662,9 @@
             <div class="trips-grid">
                 <!-- Trip 1 -->
                 <div class="trip-card">
-                    <img src="Mozambique.jpg" alt="Mozambique" class="trip-img">
+                    <div class="trip-img-container">
+                        <img src="Mozambique.jpg" alt="Mozambique" class="trip-img">
+                    </div>
                     <div class="trip-content">
                         <h3 class="trip-title">Mozambique: Maputo & Bilene Experience</h3>
                         <p class="trip-desc">Explore the vibrant capital Maputo and relax on the pristine beaches of Bilene. Cultural immersion and beach relaxation combined.</p>
@@ -580,7 +675,9 @@
                 
                 <!-- Trip 2 -->
                 <div class="trip-card">
-                    <img src="Durban.jpg" alt="Durban" class="trip-img">
+                    <div class="trip-img-container">
+                        <img src="Durban.jpg" alt="Durban" class="trip-img">
+                    </div>
                     <div class="trip-content">
                         <h3 class="trip-title">Durban Beach Getaway</h3>
                         <p class="trip-desc">Enjoy the golden beaches, warm Indian Ocean, and vibrant culture of Durban. Includes uShaka Marine World and city tours.</p>
@@ -591,7 +688,9 @@
                 
                 <!-- Trip 3 -->
                 <div class="trip-card">
-                    <img src="Suncity.jpg" alt="Sun City" class="trip-img">
+                    <div class="trip-img-container">
+                        <img src="Suncity.jpg" alt="Sun City" class="trip-img">
+                    </div>
                     <div class="trip-content">
                         <h3 class="trip-title">Sun City & Hartbeespoort Adventure</h3>
                         <p class="trip-desc">Experience luxury at Sun City Resort with its water parks, casinos, and entertainment, plus a visit to Hartbeespoort Dam.</p>
@@ -602,7 +701,9 @@
                 
                 <!-- Trip 4 -->
                 <div class="trip-card">
-                    <img src="Hike.jpg" alt="Hiking" class="trip-img">
+                    <div class="trip-img-container">
+                        <img src="Hike.jpg" alt="Hiking" class="trip-img">
+                    </div>
                     <div class="trip-content">
                         <h3 class="trip-title">Year-End Mountain Hike</h3>
                         <p class="trip-desc">Join us for a spectacular year-end hike through breathtaking mountain trails. Perfect for nature lovers and adventure seekers.</p>
@@ -654,25 +755,30 @@
     <section class="section booking" id="booking">
         <div class="container">
             <h2 class="section-title">Book Your Trip</h2>
-            <form class="booking-form">
+            <form class="booking-form" id="bookingForm" action="https://formsubmit.co/Pfarisomphadzha@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Booking Request - Phajas Travel">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="#thankyou">
+                
                 <div class="form-group">
                     <label for="name">Full Name</label>
-                    <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" class="form-control" placeholder="Your Phone">
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Your Phone" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="trip">Select Trip</label>
-                    <select id="trip" class="form-control" required>
+                    <select id="trip" name="trip" class="form-control" required>
                         <option value="">Choose a trip</option>
                         <option value="mozambique">Mozambique: Maputo & Bilene (R6,000)</option>
                         <option value="durban">Durban Beach Getaway (R4,000)</option>
@@ -684,12 +790,12 @@
                 
                 <div class="form-group">
                     <label for="travel-date">Travel Date</label>
-                    <input type="date" id="travel-date" class="form-control">
+                    <input type="date" id="travel-date" name="travel-date" class="form-control">
                 </div>
                 
                 <div class="form-group">
                     <label for="travelers">Number of Travelers</label>
-                    <select id="travelers" class="form-control">
+                    <select id="travelers" name="travelers" class="form-control">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -700,7 +806,7 @@
                 
                 <div class="form-group">
                     <label for="message">Special Requests</label>
-                    <textarea id="message" class="form-control" rows="4" placeholder="Any special requirements or requests?"></textarea>
+                    <textarea id="message" name="message" class="form-control" rows="4" placeholder="Any special requirements or requests?"></textarea>
                 </div>
                 
                 <button type="submit" class="btn">Submit Booking Request</button>
@@ -809,8 +915,8 @@
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-phone"></i> +27 (0)11 123 4567</li>
-                        <li><i class="fas fa-envelope"></i> info@phajastravel.co.za</li>
+                        <li><i class="fas fa-phone"></i> +27 72 505 3609</li>
+                        <li><i class="fas fa-envelope"></i> Pfarisomphadzha@gmail.com</li>
                         <li><i class="fas fa-map-marker-alt"></i> 123 Travel Street, Johannesburg, SA</li>
                     </ul>
                 </div>
@@ -888,9 +994,9 @@
         
         // Form submission
         document.querySelector('.booking-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+            // FormSubmit will handle the email sending
+            // You can add additional validation here if needed
             alert('Thank you for your booking request! We will contact you shortly to discuss your travel plans.');
-            this.reset();
         });
         
         // Team member modals
